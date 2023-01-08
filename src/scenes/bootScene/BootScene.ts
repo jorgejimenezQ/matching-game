@@ -25,6 +25,9 @@ export class BootScene extends Phaser.Scene {
     })
     this.load.image(this.cardBorderAsset.textureKey, this.cardBorderAsset.image)
 
+    // Load the background image
+    this.load.image(mainSceneConfig.backgroundImg.key, mainSceneConfig.backgroundImg.image)
+
     const loadText = this.add.text(100, 100, 'Loading...', {
       fontSize: '32px',
       color: '#000000',

@@ -40,6 +40,11 @@ export class MainScene extends Phaser.Scene {
   }
 
   create() {
+    // Set the image as the background
+    const bgImage = this.add.image(0, 0, mainSceneConfig.backgroundImg.key).setOrigin(0, 0)
+    bgImage.displayWidth = this.sys.canvas.width
+    bgImage.displayHeight = this.sys.canvas.height
+
     // Create the cards
     for (let i = 0; i < 8; i++) {
       for (let j = 0; j < 3; j++) {
@@ -192,8 +197,8 @@ export class MainScene extends Phaser.Scene {
   repositionCards() {
     // Reposition the cards for mobile devices with 4 cards per row and 6 rows
     for (let i = 0; i < 24; i++) {
-      const x = 50 + (i % 5) * 60
-      const y = 50 + Math.floor(i / 5) * 83
+      const x = 75 + (i % 5) * 60
+      const y = 75 + Math.floor(i / 5) * 83
       this.cards[i].repositionCard(x, y)
     }
   }

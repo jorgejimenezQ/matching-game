@@ -1,0 +1,17 @@
+:root {
+  --main-container-bg: url('../../assets/table.png');
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+  padding: 3rem;
+
+  /* background-image: ; */
+  background-image: var(--main-container-bg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}

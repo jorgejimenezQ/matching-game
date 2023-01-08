@@ -1,0 +1,102 @@
+:root {
+  --invite-menu-bg-image: url('../../assets/table.png');
+  --invite-copy-button-bg-image: url('../../assets/button/small_btn.png');
+}
+
+/*
+.invite-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: fit-content;
+  padding: 2rem;
+  margin-top: 2rem;
+
+  background-image: var(--invite-menu-bg-image);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.invite-menu .inner-wrapper .message {
+  margin-bottom: 2.5rem;
+}
+
+.invite-menu .inner-wrapper h2 {
+  margin-bottom: 2.5rem;
+  margin-top: 1rem;
+}
+
+.message {
+  font-size: 1.2rem;
+  font-weight: 600;
+  width: 65%;
+}
+.invite-key {
+  font-size: 0.6rem;
+}
+
+.invite-link {
+  margin-bottom: 2.5rem;
+}
+.button {
+  width: 70%;
+}
+
+.inner-wrapper {
+  width: 50%;
+}
+
+.copy-button {
+  background-color: #669bbc;
+  margin-left: 1rem;
+}
+
+.copied {
+  color: #780000;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.invite-menu .inner-wrapper input {
+  min-width: 300px;
+} */
+
+.invite-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+  padding: 3rem;
+  background-image: var(--invite-menu-bg-image);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.inner-wrapper {
+  padding: 1rem 0rem;
+}
+.inner-wrapper h2 {
+  margin: 1rem 1rem 5rem 1rem;
+}
+
+.invite-key {
+  font-size: 0.6rem;
+  margin: 1rem 1rem;
+}
+
+.copy-button {
+  background-image: var(--invite-copy-button-bg-image);
+  background-size: 90% 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+  outline: none;
+  border: none;
+  margin-bottom: 1rem;
+  /* width: 100px;
+  height: 30px;
+  margin: 1rem 1rem; */
+}

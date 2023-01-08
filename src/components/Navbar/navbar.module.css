@@ -1,0 +1,11 @@
+.title {
+  font-weight: 600;
+  letter-spacing: normal;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.7rem;
+  }
+}

@@ -16,11 +16,13 @@ interface ServerToClientEvents {
 }
 
 interface ClientToServerEvents {
-  join: (d: string, callback: (d: any) => void) => void
+  join: (d: any, callback: (d: any) => void) => void
   turnOver: (score: number) => void
   cardClick: (cardIndex) => void
   match: () => void
   restartGame: () => void
+  createInviteGame: (d: string, callback: (d: any) => void) => void
+  playerReady: (callback: (d: any) => void) => void
 }
 
 type Connection = {
@@ -36,7 +38,8 @@ class SocketConnection {
   // regex expression for a word
   // const wordRegex = new RegExp('^[a-zA-Z]+$')
   constructor() {
-    this.socket = io('https://mg-service.onrender.com', { autoConnect: false })
+    // production https://mg-service.onrender.com
+    this.socket = io('http://10.0.0.35:8000', { autoConnect: false })
     this.connectionId = v4()
 
     this.socket.auth = { connectionId: this.connectionId }

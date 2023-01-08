@@ -5,8 +5,8 @@ import EndScene from '../scenes/endScene/EndScene'
 
 const gameConfig = {
   type: Phaser.AUTO,
-  width: 820,
-  height: 450,
+  width: 860,
+  height: 500,
   parent: 'game',
   scene: [BootScene, MainScene, EndScene],
   //   scene: [BootScene],

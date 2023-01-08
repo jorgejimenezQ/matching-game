@@ -1,0 +1,43 @@
+:root {
+  --button--clicked: url('../../assets/button/blue_button01.png');
+  --button: url('../../assets/button/blue_button00.png');
+}
+
+body::after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  content: var(--button--clicked) var(--button);
+}
+button.game-button {
+  background-color: transparent;
+  background-image: var(--button);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  letter-spacing: 4px;
+  padding: 1.4rem 1.5rem 2.8rem 1.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+button.game-button--clicked {
+  background-image: var(--button--clicked);
+  transform: translateY(2px);
+}
+
+button.game-button:hover {
+  /* change image tint */
+  /* filter: brightness(0.8); */
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  button.game-button {
+    padding: 1.2rem 1.3rem 2.6rem 1.3rem;
+    font-size: 1.1rem;
+  }
+}
