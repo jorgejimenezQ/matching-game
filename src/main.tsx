@@ -4,7 +4,7 @@ import App from './App'
 import './index.css'
 import { Provider } from 'react-redux'
 import store from './app/store'
-import { createBrowserRouter, RouterProvider, HashRouter } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ErrorComponent from './components/Error/ErrorComponent'
 import StartScreen from './components/Start/StartScreen'
 
@@ -38,10 +38,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <App />
       </Provider>
     </BrowserRouter> */}
-    <HashRouter>
-      <Provider store={store}>
-        <RouterProvider router={router} />
-      </Provider>
-    </HashRouter>
+    <Provider store={store}>
+      <RouterProvider router={router}></RouterProvider>
+    </Provider>
   </React.StrictMode>
 )

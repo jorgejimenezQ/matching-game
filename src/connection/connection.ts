@@ -39,7 +39,10 @@ class SocketConnection {
   // const wordRegex = new RegExp('^[a-zA-Z]+$')
   constructor() {
     // production https://mg-service.onrender.com
-    this.socket = io('http://10.0.0.35:8000', { autoConnect: false })
+    const { VITE_MG_SERVER_URL } = import.meta.env
+    // console.log('VITE_MG_SERVER_URL: ' + VITE_MG_SERVER_URL)
+    this.socket = io(VITE_MG_SERVER_URL, { autoConnect: false })
+    // this.socket = io('http://10.0.0.35:8000', { autoConnect: false })
     this.connectionId = v4()
 
     this.socket.auth = { connectionId: this.connectionId }
