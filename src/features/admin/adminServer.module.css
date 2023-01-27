@@ -1,0 +1,27 @@
+.connTable {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+.header {
+  background-color: #f1f1f1;
+}
+
+.header th {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+  width: fit-content;
+}
+
+.small {
+  font-size: 0.5em;
+}
+
+.tableWrapper {
+  width: fit-content;
+  margin: 3rem 0;
+  border: 1px solid #ddd;
+}

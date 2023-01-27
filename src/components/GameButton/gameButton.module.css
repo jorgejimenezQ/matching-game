@@ -22,6 +22,8 @@ button.game-button {
   width: 100%;
   margin-bottom: 1rem;
   font-size: 1.3rem;
+
+  color: black;
 }
 
 button.game-button--clicked {

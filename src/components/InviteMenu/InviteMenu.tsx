@@ -8,7 +8,17 @@ import GameButton from '../GameButton/GameButton'
 const InviteMenu = ({ inviteKey, inviteUrl, handleSubmit, fromInvite }) => {
   const [copied, setCopied] = React.useState(false)
   const handleClick = () => {
-    navigator.clipboard.writeText(inviteUrl)
+    if (navigator.clipboard) navigator.clipboard.writeText(inviteUrl)
+    else {
+      const textArea = document.createElement('textarea')
+      textArea.value = inviteUrl
+      document.body.appendChild(textArea)
+      textArea.focus()
+      textArea.select()
+      document.execCommand('copy', false)
+      textArea.remove()
+    }
+
     setCopied(true)
   }
   return (
@@ -20,10 +30,10 @@ const InviteMenu = ({ inviteKey, inviteUrl, handleSubmit, fromInvite }) => {
           Copy &#x26; share with a friend
         </p>
         <div className={classes['invite-link']}>
-          <p className={classes['invite-key']}>{inviteKey}</p>
+          {/* <p className={classes['invite-key']}>{inviteKey}</p> */}
           {/* <textarea value={inviteKey} readOnly /> */}
           <button onClick={handleClick} className={classes['copy-button']}>
-            <img src='/src/assets/copy.svg' alt='copy' />
+            {/* <img src='/src/assets/copy.svg' alt='copy' /> */}
           </button>
         </div>
         <GameButton handleClick={handleSubmit} text='Start Game' />

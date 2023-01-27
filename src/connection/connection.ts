@@ -13,6 +13,7 @@ interface ServerToClientEvents {
   addScore: () => void
   gameOver: (winner: any) => void
   mainScene: () => void
+  admin_updateData: (data: any) => void
 }
 
 interface ClientToServerEvents {
@@ -23,6 +24,8 @@ interface ClientToServerEvents {
   restartGame: () => void
   createInviteGame: (d: string, callback: (d: any) => void) => void
   playerReady: (callback: (d: any) => void) => void
+  adminLogin: (d: any, callback: (d: any) => void) => void
+  admin_getServerInfo: (d: any, callback: (d: any) => void) => void
 }
 
 type Connection = {

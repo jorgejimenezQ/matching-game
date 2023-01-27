@@ -7,6 +7,8 @@ import store from './app/store'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ErrorComponent from './components/Error/ErrorComponent'
 import StartScreen from './components/Start/StartScreen'
+import AdminLogin from './features/admin/AdminLogin'
+import AdminServer from './features/admin/AdminServer'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
       {
         path: '/start',
         element: <StartScreen />,
+      },
+      {
+        path: '/adminLogin',
+        element: <AdminLogin />,
+      },
+      {
+        path: '/admin',
+        element: <AdminServer />,
       },
     ],
   },
