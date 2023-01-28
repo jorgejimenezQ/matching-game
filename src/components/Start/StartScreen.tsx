@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { setUsername } from '../../features/username/usernameSlice'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import classes from './startScreen.module.css'
 
 import {
@@ -35,6 +35,7 @@ export default function StartScreen() {
   const [gameNumber, setGameNumber] = useState(0)
   const effectRan = useRef(false)
   const gameRef = useRef(null)
+  const navigate = useNavigate()
 
   // Params
   const { inviteKey: inviteKeyParam } = useParams<{ inviteKey: string }>()
@@ -63,6 +64,21 @@ export default function StartScreen() {
       setInviteKey(inviteKeyParam)
       setFromInvite(true)
     }
+
+    // // Check for the invite url in the local storage
+    // const inviteUrl = localStorage.getItem('inviteUrl')
+    // const inviteKey = localStorage.getItem('inviteKey')
+    // const username = localStorage.getItem('username')
+
+    // if (inviteUrl && username) {
+    //   setUsernameInput(username)
+    //   setInviteUrl(inviteUrl)
+    //   setInviteKey(inviteKey)
+    //   setFromInvite(true)
+
+    //   // Navigate to the invite url
+    //   navigate(`/invite/${inviteKey}`)
+    // }
 
     console.log('effect ran on start screen')
     const game = gameRef.current
@@ -152,6 +168,11 @@ export default function StartScreen() {
       setInviteKey(response.sessionId)
       setInvite(true)
       dispatch(setInviteUrl(inviteUrl))
+
+      // // Store the inviteUrl in the local storage
+      // localStorage.setItem('inviteKey', response.sessionId)
+      // localStorage.setItem('inviteUrl', inviteUrl)
+      // localStorage.setItem('username', usernameInput)
     })
     const game = gameRef.current
 
@@ -185,11 +206,10 @@ export default function StartScreen() {
 
   const startGame = () => {
     setWaiting(true)
-
     dispatch(setInviteGameEnded(true))
-
+    // Keep track of the number of games played
     setGameNumber((prev) => prev + 1)
-    console.log('game number', gameNumber)
+
     // new Phaser.Game(gameConfig)
     connection.socket.emit('playerReady', (response) => {
       console.log('response from playerReady', response)
